@@ -6,15 +6,15 @@ FileBridge is a simple server to interact with a directory on your local file sy
 
 # Starting
 
-npx filebridge [dir] [-p 3001]
+    npx filebridge [dir] [-p 3001]
 
 # Reading files
 
-`GET /file/<relative path to dir>`
+    GET /file/<relative path to dir>
 
 # Writing files
 
-`POST /file/<relative path to dir>`
+    POST /file/<relative path to dir>
 
 # Watching
 
