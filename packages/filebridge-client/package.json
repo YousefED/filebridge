@@ -20,7 +20,7 @@
   "scripts": {
     "test": "echo \"Run tests from root\" && exit 1",
     "clean": "rm -rf dist && rm -rf types",
-    "build": "npm run clean && microbundle build --raw --no-compress"
+    "build": "npm run clean && microbundle build --raw --no-compress --target=node"
   },
   "publishConfig": {
     "access": "public"
@@ -30,5 +30,6 @@
       "react-app",
       "react-app/jest"
     ]
-  }
+  },
+  "gitHead": "c2bdc7fc9d7fdd3880515f6134d2534d33346429"
 }
