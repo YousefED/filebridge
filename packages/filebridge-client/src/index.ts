@@ -1,11 +1,11 @@
-import fetch from "cross-fetch";
+import type fetchType from "cross-fetch";
 import { event } from "vscode-lib";
 import { lifecycle } from "vscode-lib";
 
 const SERVER = "http://localhost:3001";
 const WS_SERVER = "ws://localhost:3001";
 
-export async function readFile(path: string, server = SERVER) {
+export async function readFile(fetch: typeof fetchType, path: string, server = SERVER) {
   const file = await fetch(server + "/file/" + path, {});
 
   if (file.status === 203) {
@@ -20,7 +20,7 @@ export async function readFile(path: string, server = SERVER) {
   }
 }
 
-export async function saveFile(path: string, contents: string, server = SERVER) {
+export async function saveFile(fetch: typeof fetchType, path: string, contents: string, server = SERVER) {
   const file = await fetch(server + "/file/" + path, {
     method: "POST",
     body: contents,

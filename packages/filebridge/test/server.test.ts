@@ -4,6 +4,7 @@ import * as path from "path";
 import { FileBridgeServer } from "../src/server";
 import { event } from "vscode-lib";
 import { readFile, saveFile, Watcher } from "filebridge-client";
+import fetch from "cross-fetch";
 
 let server: any;
 let dir = fs.mkdtempSync(path.join(os.tmpdir(), "filebridge-test-"));
@@ -21,25 +22,25 @@ afterAll(() => {
 
 it("reads a file", async () => {
   fs.writeFileSync(path.join(dir, "testfile"), "contents");
-  const file = await readFile("testfile");
+  const file = await readFile(fetch, "testfile");
   expect(file.contents).toBe("contents");
 });
 
 it("writes a file", async () => {
   fs.writeFileSync(path.join(dir, "testfile2"), "contents");
-  await saveFile("testfile2", "contents2");
+  await saveFile(fetch, "testfile2", "contents2");
   expect(fs.readFileSync(path.join(dir, "testfile2"), { encoding: "utf-8" })).toBe("contents2");
 });
 
 it("write a file not found", async () => {
   expect(async () => {
-    await saveFile("notfound", "contents");
+    await saveFile(fetch, "notfound", "contents");
   }).rejects.toThrow(Error);
 });
 
 it("read a file not found", async () => {
   expect(async () => {
-    await readFile("notfound");
+    await readFile(fetch, "notfound");
   }).rejects.toThrow(Error);
 });
 
