@@ -1,6 +1,6 @@
 {
   "name": "filebridge",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "private": false,
   "main": "dist/filebridge.js",
   "module": "dist/filebridge.module.js",
