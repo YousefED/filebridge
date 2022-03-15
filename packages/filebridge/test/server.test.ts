@@ -2,8 +2,6 @@ import * as fs from "fs";
 import * as os from "os";
 import * as path from "path";
 import { FileBridgeServer } from "../src/server";
-// https://github.com/developit/microbundle/issues/708
-import "regenerator-runtime/runtime.js";
 import { event } from "vscode-lib";
 import { readFile, saveFile, Watcher } from "filebridge-client";
 
