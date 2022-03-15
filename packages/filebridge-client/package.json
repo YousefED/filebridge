@@ -5,6 +5,7 @@
   "main": "dist/filebridge.js",
   "module": "dist/filebridge.module.js",
   "umd:main": "dist/filebridge.umd.js",
+  "exports": "./dist/filebridge.modern.js",
   "source": "src/index.ts",
   "types": "types/index.d.ts",
   "license": "MIT",
@@ -28,18 +29,6 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
     ]
   }
 }
